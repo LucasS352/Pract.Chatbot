@@ -1,0 +1,4 @@
+2025-03-05 19:24:00,717 - ERROR - Erro fatal: 'ChatbotPRACT' object has no attribute 'add_bot_message'
+2025-03-05 19:24:10,068 - ERROR - Erro fatal: 'ChatbotPRACT' object has no attribute 'add_bot_message'
+2025-03-05 19:24:30,905 - ERROR - Erro fatal: 'ChatbotPRACT' object has no attribute 'add_bot_message'
+2025-03-05 19:27:33,211 - ERROR - Erro fatal: 'ChatbotPRACT' object has no attribute 'send_message'

@@ -1,0 +1,180 @@
+{
+  "saudacao": {
+    "patterns": [
+      "olá", "oi", "hey", "bom dia", "boa tarde", "boa noite",
+      "e aí", "tudo bem", "como vai", "prazer",
+      "olá, tudo bem?", "oi, bom dia", "boa noite, tudo bem?",
+      "olá, preciso de ajuda", "oi, pode me ajudar?"
+    ],
+    "responses": [
+      "Olá! Sou o assistente do ERP. Como posso ajudar?",
+      "Oi! Sou o assistente virtual, em qual tema você precisa de ajuda?"
+    ]
+  },
+
+  "reconhecimento_erro": {
+    "patterns": [
+      "não consigo salvar o produto", "não consigo concluir a venda porque aparece um erro",
+      "não consigo cancelar a venda", "estou com erro no produto","estou com erro ao salvar o produto",
+      "quando vou salvar o produto aparece um erro",
+      "problema na nota fiscal", "problema com nf", "nota fiscal não está saindo",
+      "falha na emissão da nota","quando tento enviar a nota fiscal da erro",
+      "nota fiscal com erro", "não consigo emitir nota", "estou com erro na nota"
+    ],
+    "responses": [
+      "Entendi, bom vamos checar isso. Escreva o erro que aparece em sua tela (copiei com o Ctrl+C), cole aqui o com Ctrl + V.",
+      "Cole aqui o erro emitido em tela(copiei com o Ctrl+C). Isso ajudará a identificar a solução. Depois, na nossa conversa, aperte Ctrl + V."
+    ],
+    "images": ["Colar_Erro.png"]
+  },
+
+  "erro_regime_tributario": {
+    "patterns": [
+      " Rejeição: Código Regime Tributário do emitente diverge do cadastro na SEFAZ Nota(s) não confirmadas: 8->481-Rejeição: Código Regime Tributário do emitente diverge do cadastro na SEFAZ"
+    ],
+    "responses": [
+      "O erro de Regime Tributário ocorre quando há divergência entre o cadastro na SEFAZ e no sistema. Para resolver:\n\n1. Verifique o regime no site da SEFAZ\n2. Compare com o cadastro no sistema\n3. Se estiver divergente abra um ticket mostrando qual regime a empresa foi\n"
+    ],
+    "images": ["Erro_notaRegime.png", "Erro_notaRegime1.png"]
+  },
+
+  "erro_duplicidade_nf": {
+    "patterns": [
+      "Rejeição: Duplicidade de NF-e com diferença na Chave de Acesso "
+    ],
+    "responses": [
+      "Erro de duplicidade ocorre quando há uma nota com a mesma chave de acesso. Para resolver:\n\n1. Verifique o número da nota e a série\n2. Consulte a NF na SEFAZ\n3. Se necessário, altere manualmente o número da nota\n4. Transmita novamente"
+    ]
+  },
+
+  "erro_timeout": {
+    "patterns": [
+      "Erro Interno: 10060 Erro HTTP: 500 URL: https://nfce.fazenda.sp.gov.br/ws/NFeAutorizacao4.asmx Connection timed out "
+    ],
+    "responses": [
+      "Erro de timeout ocorre quando há problemas de conexão com a SEFAZ. Para resolver:\n\n1. Verifique a conexão com a internet\n2. Reinicie o computador\n3. Tente transmitir novamente\n4. Se persistir, entre em contato com o suporte"
+    ]
+  },
+
+  "erro_csosn": {
+    "patterns": [
+      "Falha na validação dos dados da nota: 1530 TAG:<det nItem=1><imposto><ICMS><ICMSSN> ID:N12a/CSOSN(Código de Situação da Operação Simples Nacional) - Nenhum valor informado. TAG:<det nItem=2><imposto><ICMS><ICMSSN> ID:N12a/CSOSN(Código de Situação da Operação Simples Nacional) - Nenhum valor informado. --> 1871 - Element '{http://www.portalfiscal.inf.br/nfe}ICMSSN': This element is not expected. Expected is one of ( {http://www.portalfiscal.inf.br/nfe}ICMS00, ",
+      "erro ao transmitir nf por csosn", "csosn inválido"
+    ],
+    "responses": [
+      "Erro de CSOSN ocorre quando o código de situação da operação não está preenchido. Para resolver:\n\n1. Verifique o cadastro do produto\n2. Preencha o campo CSOSN corretamente\n3. Transmita a nota novamente"
+    ],
+    "images": ["Erro_CsonVazia.png"]
+  },
+
+  "erro_inscricao_estadual": {
+    "patterns": [
+      "Falha na validação dos dados da nota: 2--> 1824 - Element '{http://www.portalfiscal.inf.br/nfe}IE': '' is not a valid value of the atomic type '{http://www.portalfiscal.inf.br/nfe}TIe'."
+
+    ],
+    "responses": [
+      "Erro de inscrição estadual ocorre quando o campo IE não está preenchido corretamente. Para resolver:\n\n1. Preencha a inscrição estadual\n2. Se for isento, use 'ISENTO' ou '00000000000'\n3. Transmita a nota novamente"
+    ],
+    "images": ["Erro_inscricaoIE.png"]
+  },
+
+  "erro_valor_produto": {
+    "patterns": [
+      "Rejeição: Valor do difere do produ Valor Unitário de Comercialização e Quantidade Comercial Nota(s) não confirmadas: 35853->629-Rejeição: Valor do difere do produto Valor Unitário de Comercialização e Quantidade Comercial"
+    ],
+    "responses": [
+      "Erro de valor do produto ocorre quando há divergência entre o valor informado e o calculado. Para resolver:\n\n1. Verifique o valor unitário e a quantidade\n2. Ajuste o desconto, se necessário\n3. Transmita a nota novamente"
+    ],
+    "images": ["Erro_ProdDifere.png"]
+  },
+
+  "erro_desconto": {
+    "patterns": [
+      "Falha na validação dos dados da nota: 1140 1824 - Element '{http://www.portalfiscal.inf.br/nfe}vDesc': '-0.57' is not a valid value of the atomic type '{http://www.portalfiscal.inf.br/nfe}TDec_1302Opc'.Falha na validação dos dados da nota: 1140-->1824 - Element '{http://www.portalfiscal.inf.br/nfe}vDesc': '-0.57' is not a valid value of the atomic type '{http://www.portalfiscal.inf.br/nfe}TDec_1302Opc'."
+      
+    ],
+    "responses": [
+      "Erro de desconto ocorre quando o valor do desconto é maior que o valor do produto ou está negativo. Para resolver:\n\n1. Verifique o desconto aplicado no produto\n2. Ajuste o valor do desconto\n3. Transmita a nota novamente"
+    ]
+  },
+
+  "suporte_contato": {
+    "patterns": [
+      "preciso de suporte", "ajuda técnica", "telefone do suporte",
+      "contato do suporte", "como falo com o suporte", "número da alternativa",
+      "email do suporte", "preciso falar com alguém"
+    ],
+    "responses": [
+      "Você pode entrar em contato com nosso suporte através dos seguintes canais:\n\n• Telefone: (14) 3311-5000\n• E-mail: suporte@alternativa.com\n• Horário: Segunda a Sexta, das 8h às 18h"
+    ]
+  },
+
+  "vendas_consulta": {
+    "patterns": [
+      "como consultar vendas", "ver relatório de vendas", "buscar vendas do dia",
+      "relatório do faturamento", "consulta de pedidos", "como faço para ver minhas vendas",
+      "quero ver minhas vendas", "onde vejo as vendas", "mostrar vendas", "acessar vendas"
+    ],
+    "responses": [
+      "Para consultar vendas, siga estes passos:\n\n1. Acesse o menu 'Vendas'\n2. Selecione 'Consulta de Vendas'\n3. Escolha o período desejado\n4. Clique em 'Buscar'\n\nVocê também pode usar filtros por vendedor, cliente ou produto."
+    ]
+  },
+
+  "erro_importacao": {
+    "patterns": [
+      "Falha na validação dos dados da nota: 53142 --> 1871 - Element'{http://www.portalfiscal.inf.br/nfe}DI': Missing child element(s). Expected is {http://www.portalfiscal.inf.br/nfe}adi"
+      
+    ],
+    "responses": [
+      "Erro na nota de importação ocorre quando há campos obrigatórios não preenchidos. Para resolver:\n\n1. Verifique o campo DI (Declaração de Importação)\n2. Preencha todos os campos obrigatórios\n3. Transmita a nota novamente"
+    ],
+    "images": ["Erro_notaimport.png", "Erro_notaimport1.png"]
+  },
+
+  "erro_transportadora": {
+    "patterns": [
+      "erro de transportadora", "problema com integração de transportadora",
+      "erro ao integrar pedido com transportadora", "transportadora não configurada"
+    ],
+    "responses": [
+      "Erro de transportadora ocorre quando a transportadora não está configurada corretamente. Para resolver:\n\n1. Verifique o cadastro da transportadora\n2. Crie uma nova integração com as informações corretas\n3. Force o pedido novamente"
+    ]
+  },
+
+  "secao_invalida": {
+    "patterns": [
+      "Os seguintes erros foram encontrados: Secão inválida",
+      "sessao invalida"
+    ],
+    "responses": [
+      "Coloque a seção no cadastro do produto e salve."
+    ],
+    "images": ["Secao_Invalida.png"]
+  },
+
+  "erro_token_correios": {
+    "patterns": [
+      "erro de token dos correios", "problema com token", "erro ao gerar ppn",
+      "token inválido", "erro ao verificar token"
+    ],
+    "responses": [
+      "Erro de token dos correios ocorre quando o token está inválido ou expirado. Para resolver:\n\n1. Acesse o site dos Correios e gere um novo token\n2. Atualize o token no sistema\n3. Verifique as APIs\n4. Tente novamente"
+    ]
+  },
+  "despedida": {
+    "patterns": [
+      "tchau", "adeus", "até logo", "até mais", "até breve", "falou", "valeu", "vlw muito obrigado","tchauzinho", "flw", "vlw", "obg", "obgd", "xau", "bye", "goodbye",
+      "funcionou aqui, obrigada", "deu certo, obrigado", "finalizar"
+    ],
+    "responses": [
+      
+        "Até logo! Se precisar de mais alguma coisa, estou à disposição. 😊",
+        "Foi um prazer ajudar! Volte sempre que precisar. 👋",
+        "Tchau! Se tiver mais dúvidas, é só chamar. Até mais!",
+        "Até breve! Estarei aqui se precisar de ajuda. 😄",
+        "Valeu! Se precisar de mais alguma coisa, estou por aqui. 👋",
+        "Até a próxima! Foi bom conversar com você. 😊",
+        "Tenha um ótimo dia! Se precisar, estou à disposição. 👋"
+    ]
+  }
+}

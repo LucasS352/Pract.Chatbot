@@ -1,0 +1,7 @@
+Python 13.11.5 instalado  
+pip install numpy instalado 	
+pip install spacy instalado 
+pip install fastapi uvicorn fuzzywuzzy python-Levenshtein   
+pip install ttkthemes 
+spacy python -m spacy download pt_core_news_sm
+pip install Pillow
