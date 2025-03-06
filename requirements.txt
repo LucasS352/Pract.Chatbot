@@ -1,7 +1,4 @@
-Python 13.11.5 instalado  
-pip install numpy instalado 	
-pip install spacy instalado 
-pip install fastapi uvicorn fuzzywuzzy python-Levenshtein   
-pip install ttkthemes 
-spacy python -m spacy download pt_core_news_sm
-pip install Pillow
+flask==2.2.3
+python-dotenv==1.0.0
+spacy==3.4.0  # Certifique-se de usar a versão compatível com Python até 3.12
+requests==2.28.2
